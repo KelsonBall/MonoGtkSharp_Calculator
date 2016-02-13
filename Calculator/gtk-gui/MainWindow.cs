@@ -43,6 +43,8 @@ public partial class MainWindow
 	
 	private global::Gtk.Button buttonDiv;
 	
+	private global::Gtk.Button buttonEval;
+	
 	private global::Gtk.Button buttonMod;
 	
 	private global::Gtk.Button buttonMult;
@@ -235,7 +237,7 @@ public partial class MainWindow
 		this.buttonClear.CanFocus = true;
 		this.buttonClear.Name = "buttonClear";
 		this.buttonClear.UseUnderline = true;
-		this.buttonClear.Label = global::Mono.Unix.Catalog.GetString ("C");
+		this.buttonClear.Label = global::Mono.Unix.Catalog.GetString ("AC");
 		this.opPad.Add (this.buttonClear);
 		global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonClear]));
 		w16.LeftAttach = ((uint)(2));
@@ -253,17 +255,31 @@ public partial class MainWindow
 		w17.LeftAttach = ((uint)(1));
 		w17.RightAttach = ((uint)(2));
 		// Container child opPad.Gtk.Table+TableChild
+		this.buttonEval = new global::Gtk.Button ();
+		this.buttonEval.CanFocus = true;
+		this.buttonEval.Name = "buttonEval";
+		this.buttonEval.UseUnderline = true;
+		this.buttonEval.Label = global::Mono.Unix.Catalog.GetString ("=");
+		this.opPad.Add (this.buttonEval);
+		global::Gtk.Table.TableChild w18 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonEval]));
+		w18.TopAttach = ((uint)(2));
+		w18.BottomAttach = ((uint)(3));
+		w18.LeftAttach = ((uint)(2));
+		w18.RightAttach = ((uint)(3));
+		w18.XOptions = ((global::Gtk.AttachOptions)(4));
+		w18.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child opPad.Gtk.Table+TableChild
 		this.buttonMod = new global::Gtk.Button ();
 		this.buttonMod.CanFocus = true;
 		this.buttonMod.Name = "buttonMod";
 		this.buttonMod.UseUnderline = true;
 		this.buttonMod.Label = global::Mono.Unix.Catalog.GetString ("%");
 		this.opPad.Add (this.buttonMod);
-		global::Gtk.Table.TableChild w18 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonMod]));
-		w18.TopAttach = ((uint)(1));
-		w18.BottomAttach = ((uint)(2));
-		w18.LeftAttach = ((uint)(2));
-		w18.RightAttach = ((uint)(3));
+		global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonMod]));
+		w19.TopAttach = ((uint)(1));
+		w19.BottomAttach = ((uint)(2));
+		w19.LeftAttach = ((uint)(2));
+		w19.RightAttach = ((uint)(3));
 		// Container child opPad.Gtk.Table+TableChild
 		this.buttonMult = new global::Gtk.Button ();
 		this.buttonMult.CanFocus = true;
@@ -271,9 +287,9 @@ public partial class MainWindow
 		this.buttonMult.UseUnderline = true;
 		this.buttonMult.Label = global::Mono.Unix.Catalog.GetString ("X");
 		this.opPad.Add (this.buttonMult);
-		global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonMult]));
-		w19.TopAttach = ((uint)(1));
-		w19.BottomAttach = ((uint)(2));
+		global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonMult]));
+		w20.TopAttach = ((uint)(1));
+		w20.BottomAttach = ((uint)(2));
 		// Container child opPad.Gtk.Table+TableChild
 		this.buttonPop = new global::Gtk.Button ();
 		this.buttonPop.CanFocus = true;
@@ -281,9 +297,9 @@ public partial class MainWindow
 		this.buttonPop.UseUnderline = true;
 		this.buttonPop.Label = global::Mono.Unix.Catalog.GetString (")");
 		this.opPad.Add (this.buttonPop);
-		global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonPop]));
-		w20.LeftAttach = ((uint)(1));
-		w20.RightAttach = ((uint)(2));
+		global::Gtk.Table.TableChild w21 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonPop]));
+		w21.LeftAttach = ((uint)(1));
+		w21.RightAttach = ((uint)(2));
 		// Container child opPad.Gtk.Table+TableChild
 		this.buttonPush = new global::Gtk.Button ();
 		this.buttonPush.CanFocus = true;
@@ -298,18 +314,18 @@ public partial class MainWindow
 		this.buttonSub.UseUnderline = true;
 		this.buttonSub.Label = global::Mono.Unix.Catalog.GetString ("-");
 		this.opPad.Add (this.buttonSub);
-		global::Gtk.Table.TableChild w22 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonSub]));
-		w22.TopAttach = ((uint)(2));
-		w22.BottomAttach = ((uint)(3));
-		w22.LeftAttach = ((uint)(1));
-		w22.RightAttach = ((uint)(2));
+		global::Gtk.Table.TableChild w23 = ((global::Gtk.Table.TableChild)(this.opPad [this.buttonSub]));
+		w23.TopAttach = ((uint)(2));
+		w23.BottomAttach = ((uint)(3));
+		w23.LeftAttach = ((uint)(1));
+		w23.RightAttach = ((uint)(2));
 		this.hbox3.Add (this.opPad);
-		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.opPad]));
-		w23.Position = 1;
-		this.vbox1.Add (this.hbox3);
-		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox3]));
+		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.opPad]));
 		w24.Position = 1;
-		w24.Expand = false;
+		this.vbox1.Add (this.hbox3);
+		global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.hbox3]));
+		w25.Position = 1;
+		w25.Expand = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -330,5 +346,14 @@ public partial class MainWindow
 		this.buttonNum2.Clicked += new global::System.EventHandler (this.numClicked);
 		this.buttonNum1.Clicked += new global::System.EventHandler (this.numClicked);
 		this.buttonNum.Clicked += new global::System.EventHandler (this.numClicked);
+		this.buttonSub.Clicked += new global::System.EventHandler (this.opClicked);
+		this.buttonPush.Clicked += new global::System.EventHandler (this.opClicked);
+		this.buttonPop.Clicked += new global::System.EventHandler (this.opClicked);
+		this.buttonMult.Clicked += new global::System.EventHandler (this.opClicked);
+		this.buttonMod.Clicked += new global::System.EventHandler (this.opClicked);
+		this.buttonEval.Clicked += new global::System.EventHandler (this.opClicked);
+		this.buttonDiv.Clicked += new global::System.EventHandler (this.opClicked);
+		this.buttonClear.Clicked += new global::System.EventHandler (this.onClear);
+		this.buttonAdd.Clicked += new global::System.EventHandler (this.opClicked);
 	}
 }

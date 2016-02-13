@@ -1,5 +1,6 @@
 /home/kelson/Documents/Mono/Projects/Calculator/Calculator/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
 /home/kelson/Documents/Mono/Projects/Calculator/Calculator/obj/x86/Debug/Calculator.gtk-gui.gui.stetic
+/home/kelson/Documents/Mono/Projects/Calculator/Calculator/bin/Debug/ExpressionEvaluator.dll
 /home/kelson/Documents/Mono/Projects/Calculator/Calculator/bin/Debug/Calculator.exe.mdb
 /home/kelson/Documents/Mono/Projects/Calculator/Calculator/bin/Debug/Calculator.exe
 /home/kelson/Documents/Mono/Projects/Calculator/Calculator/obj/x86/Debug/Calculator.exe
