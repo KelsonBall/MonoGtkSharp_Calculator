@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{273BD73D-4724-4C31-962D-64500C48ED13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{273BD73D-4724-4C31-962D-64500C48ED13}.Debug|x86.ActiveCfg = Debug|x86
+		{273BD73D-4724-4C31-962D-64500C48ED13}.Debug|x86.Build.0 = Debug|x86
+		{273BD73D-4724-4C31-962D-64500C48ED13}.Release|x86.ActiveCfg = Release|x86
+		{273BD73D-4724-4C31-962D-64500C48ED13}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
