@@ -96,8 +96,23 @@ namespace Calculator.Expresions
 			string submit = this._expresion.ToString ();
 			this.lines.Add (submit);
 			Expression func = new Expression ("");
-			func.Function = submit;
-			this.lines.Add (">> " + func.EvaluateNumeric ().ToString ());
+			try
+			{				
+				func.Function = submit;
+				double result = func.EvaluateNumeric ();
+				if (double.IsNaN(result))
+					throw new ExpressionException("Division by 0! ;-;");
+				
+				this.lines.Add (">> " + result.ToString ());
+			}
+			catch (ExpressionException e)
+			{
+				this.lines.Add ("X> " + e.Message + @" ಠ╭╮ಠ");
+			}
+			catch (OverflowException e)
+			{
+				this.lines.Add ("NUMBERS TOO BIG ;-;");
+			}
 			this._expresion.Clear ();
 		}
 
