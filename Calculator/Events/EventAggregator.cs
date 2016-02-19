@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Calculator.Events
 {
+    /// <summary>
+    /// Strongly typed event object manager. 
+    /// </summary>
 	public class EventAggregator
 	{
 		private Dictionary<string,AppEvent> events;

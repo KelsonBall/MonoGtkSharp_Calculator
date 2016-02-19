@@ -7,6 +7,10 @@ namespace Calculator.Expresions
 {
 	using Events;
 
+    /// <summary>
+    /// Manages current number and current expresion
+    /// Subscribes to UI events and Publishes results as text.
+    /// </summary>
 	public class CalculatorStateManager
 	{
 		private List<string> lines;
@@ -17,7 +21,7 @@ namespace Calculator.Expresions
 		private StringBuilder _numVal;
 		private bool _numValToggle;
 		private bool _isDec = false;
-
+        
 		public CalculatorStateManager (EventAggregator events)
 		{
 			this._expresion = new StringBuilder ();
@@ -26,31 +30,24 @@ namespace Calculator.Expresions
 			this.lines = new List<string> ();
 
 			this._events = events;
-			this._events.GetEvent<NumberUpdateEvent>().Subscribe (this.UpdateNumState);
-			this._events.GetEvent<NumberUpdateEvent> ().Subscribe (value => {				
-				this._events.GetEvent<OutputTextUpdateEvent>().Publish(this.ToString());
-			});
-			this._events.GetEvent<ExpresionUpdateEvent>().Subscribe (this.ExpresionAction);
-			this._events.GetEvent<ExpresionUpdateEvent> ().Subscribe (value => {				
-				this._events.GetEvent<OutputTextUpdateEvent>().Publish(this.ToString());
-			});
-
-			this._events.GetEvent<ClearEvent> ().Subscribe (clicks =>
-			{
-				if (clicks == 2)
-					this.lines.Clear();
-				
-				this._expresion.Clear();
-				this._numVal.Clear();
-				this._numValToggle = false;
-				this._isDec = false;
-
-			});
-
-			this._events.GetEvent<ClearEvent> ().Subscribe (value => {				
-				this._events.GetEvent<OutputTextUpdateEvent>().Publish(this.ToString());
-			});
+            this._events.GetEvent<NumberUpdateEvent>().Subscribe (this.UpdateNumState);
+            this._events.GetEvent<ExpresionUpdateEvent>().Subscribe (this.ExpresionAction);			
+			this._events.GetEvent<ClearEvent> ().Subscribe (this.ClearState);
+			
 		}
+
+	    private void ClearState(int action)
+	    {
+            if (action == 2)
+                this.lines.Clear();
+
+            this._expresion.Clear();
+            this._numVal.Clear();
+            this._numValToggle = false;
+            this._isDec = false;
+
+            this.PostStateUpdate();
+        }
 
 		private void UpdateNumState(string numVal)
 		{
@@ -69,6 +66,8 @@ namespace Calculator.Expresions
 			}
 
 			this._numVal.Append (numVal);
+
+            this.PostStateUpdate();
 		}
 
 		private void ExpresionAction(string actionVal)
@@ -89,6 +88,8 @@ namespace Calculator.Expresions
 			{
 				this._expresion.Append ("  " + actionVal + " ");
 			}
+
+            this.PostStateUpdate();
 		}
 
 		private void Evaluate()
@@ -115,6 +116,11 @@ namespace Calculator.Expresions
 			}
 			this._expresion.Clear ();
 		}
+
+	    private void PostStateUpdate()
+	    {
+	        this._events.GetEvent<OutputTextUpdateEvent>().Publish(this.ToString());
+	    }
 
 		public override string ToString ()
 		{
