@@ -1,1 +1,15 @@
-This is a repository for a simple GTK# cross platform calculator demo project.
+This is a cross platform calculator project for learning/demonstrating the MonoDevelop Gtk# platform. 
+It utilizes an event aggregator to "loosely couple the UI from the State" (because event aggregators are cool.)
+
+Build instructions:
++ With Monodevelop
+  -Pull in nuget packages
+  -Confirm targeting Monodevelop runtime.
+  -Rebuild all
+
++ With Visual Studio
+  -Pull in nuget packages
+  -Install Gtk# nuget package.
+  -Replace mono specific code in the auto generated /gtk-gui/MainWindow.cs
+  -Rebuild all
+  
